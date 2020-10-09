@@ -1,12 +1,20 @@
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
+import links from "./src/handlers/links"
+import Router from "./router"
+
+addEventListener("fetch", event => {
+    console.log('Ready to handle requests!')
+    event.respondWith(handleRequest(event.request))
 })
-/**
- * Respond with hello worker text
- * @param {Request} request
- */
+
 async function handleRequest(request) {
-  return new Response('Hello worker!', {
-    headers: { 'content-type': 'text/plain' },
-  })
+    const r = new Router()
+    r.get("/links", links)
+
+    let response = await r.route(request)
+
+    if (response.status == 404) {
+        response = new Response("Heyyoo.", { status: 200 })
+    }
+    console.log('Received Response: ', response);
+    return response
 }
