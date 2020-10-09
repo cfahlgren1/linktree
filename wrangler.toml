@@ -1,6 +1,6 @@
 name = "my-app"
-type = "javascript"
-account_id = ""
+type = "webpack"
+account_id = "a4cfcea787c7e72e650086e6a1f6d169"
 workers_dev = true
 route = ""
 zone_id = ""
