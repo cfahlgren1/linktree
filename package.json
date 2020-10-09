@@ -2,7 +2,7 @@
     "private": true,
     "name": "link-tree-app",
     "version": "1.0.0",
-    "description": "A link-tree project built with Cloudflare Wrangler",
+    "description": "A link-tree project built with a Cloudflare Worker",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
