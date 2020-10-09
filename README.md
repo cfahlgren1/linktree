@@ -1,15 +1,43 @@
-# 👷 `worker-template` Hello World
+# LinkTree  
+Built with 👷 `Cloudflare Worker`!
 
-A template for kick starting a Cloudflare worker project.
+LinkTree is a Serverless JavaScript Web Application and API linktree style protoype built with a Cloudflare Worker.
 
-[`index.js`](https://github.com/cloudflare/worker-template/blob/master/index.js) is the content of the Workers script.
+You can view my LinkTree [here](https://my-app.calebf.workers.dev/)!
+## Installation
 
-#### Wrangler
-
-To generate using [wrangler](https://github.com/cloudflare/wrangler)
-
+```bash
+npm i @cloudflare/wrangler -g
 ```
-wrangler generate projectname https://github.com/cloudflare/worker-template
+## Run Project
+```bash
+wrangler dev
 ```
 
-Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
+## API Endpoint
+You can view the API endpoint at `/links`
+```json
+{
+  "links": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/caleb-fahlgren-8a8ba0170/"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/cfahlgren1"
+    },
+    {
+      "name": "Bulma",
+      "url": "https://bulma.io/"
+    },
+    {
+      "name": "CloudFlare",
+      "url": "https://www.cloudflare.com/"
+    }
+  ]
+}
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
