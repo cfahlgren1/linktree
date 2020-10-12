@@ -1,4 +1,5 @@
-import linkFetch from "./linkFetch";
+import { data } from "./api";
+
 /**
  * Uses HTMLRewriter to insert data into HTML and return web page response
  */
@@ -9,10 +10,9 @@ export default async() => {
      */
     class LinksTransformer {
         async element(element) {
-            // retrieve links from api endpoint /links
-            let links = await linkFetch()
-            links = links['links']
-            links.forEach(link => {
+            // retrieve links from api module
+            let social_links = data.links
+            social_links.forEach(link => {
                 element.append(`<a href="${link.url}">${link.name}</a>`, { html: true });
             })
         }

@@ -1,6 +1,5 @@
 import api from "./src/handlers/api"
 import home from "./src/handlers/home"
-import linkFetch from "./src/handlers/linkFetch"
 import Router from "./router"
 
 addEventListener("fetch", event => {
@@ -16,9 +15,10 @@ async function handleRequest(request) {
     r.get("/links", api) // add route for api endpoint
 
     let response = await r.route(request)
-        // if url is not /links , return static html response
+
+    // if url is not /links , return static html response
     if (response.status == 404) {
-        return home()
+        return home() // call html response from home
     }
     return response
 }
