@@ -1,3 +1,7 @@
+import linkFetch from "./linkFetch";
+/**
+ * Uses HTMLRewriter to insert data into HTML and return web page response
+ */
 export default async() => {
     /**
      * Add links to link elements in html
@@ -5,12 +9,9 @@ export default async() => {
      */
     class LinksTransformer {
         async element(element) {
-            let links = [
-                { "name": "LinkedIn", "url": "https://www.linkedin.com/in/caleb-fahlgren-8a8ba0170/" },
-                { "name": "GitHub", "url": "https://github.com/cfahlgren1" },
-                { "name": "Bulma", "url": "https://bulma.io/" },
-                { "name": "CloudFlare", "url": "https://www.cloudflare.com/" }
-            ]
+            // retrieve links from api endpoint /links
+            let links = await linkFetch()
+            links = links['links']
             links.forEach(link => {
                 element.append(`<a href="${link.url}">${link.name}</a>`, { html: true });
             })
@@ -79,6 +80,7 @@ export default async() => {
             element.setAttribute("class", "bg-gray-700");
         }
     }
+    // set the response headers 
     const init = {
             headers: {
                 "content-type": "text/html;charset=UTF-8",

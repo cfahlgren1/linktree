@@ -1,6 +1,9 @@
+/**
+ * API endpoint that returns JSON response of social links
+ */
 export default async() => {
     const data = {
-            // array to hold social links
+            // array holding social links
             links: [
                 { "name": "LinkedIn", "url": "https://www.linkedin.com/in/caleb-fahlgren-8a8ba0170/" },
                 { "name": "GitHub", "url": "https://github.com/cfahlgren1" },
